@@ -29,13 +29,13 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 - [strace](https://linux.die.net/man/1/strace)     —— trace system call
 
 ### added softwares
-[zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful framework for managing your zsh configuration.
-[peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
-[socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
-[z3](https://github.com/Z3Prover/z3) --  Theorem Prover
-[gdbinit](https://github.com/TacXingXing/Pwndocker/blob/master/gdbinit) -- gdb configuration for docker
-[zshrc](https://github.com/TacXingXing/Pwndocker/blob/master/zshrc) -- zsh configure for the docker
-[tmux.conf](https://github.com/TacXingXing/Pwndocker/blob/master/tmux.conf) -- tmux configure for docker
+- [zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful framework for managing your zsh configuration.
+- [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
+- [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
+- [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
+- [gdbinit](https://github.com/TacXingXing/Pwndocker/blob/master/gdbinit) -- gdb configuration for docker
+- [zshrc](https://github.com/TacXingXing/Pwndocker/blob/master/zshrc) -- zsh configure for the docker
+- [tmux.conf](https://github.com/TacXingXing/Pwndocker/blob/master/tmux.conf) -- tmux configure for docker
 
 ### included glibc
 
@@ -62,4 +62,4 @@ p = process(["/path/to/ld.so", "./test"], env={"LD_PRELOAD":"/path/to/libc.so.6"
 ```
 
 ### Others
-If you have some new tools need to add in the docker, please submit issues, thanks.
+If you have some new tools need to add in the pwndocker, please submit issue, thanks.
