@@ -1,12 +1,13 @@
 Pwndocker(Tac)
 ===
 
-A docker environment for pwn in ctf based on **phusion/baseimage**, which is a modified ubuntu 16.04 baseimage for docker. I forked and modified by [pwndocker](https://github.com/skysider/pwndocker)
+A docker environment for pwn in ctf based on **phusion/baseimage**, which is a modified ubuntu 16.04 baseimage for docker. I forked and magic changed by [pwndocker](https://github.com/skysider/pwndocker)
 
 ### Usage
 
 ```bash
-cd pwndocker
+git clone https://github.com/TacXingXing/Pwndocker
+cd Pwndocker
 docker build -t pwndocker .
 docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --cap-add=SYS_PRTACE pwndocker
 ```
@@ -28,14 +29,13 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 - [strace](https://linux.die.net/man/1/strace)     —— trace system call
 
 ### added softwares
-[zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful community-driven (with 1,300+ contributors) framework for managing your zsh configuration.
+[zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful framework for managing your zsh configuration.
 [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
 [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
 [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
-
-.gdbinit
-.zshrc
-.tmux.conf
+[gdbinit](https://github.com/TacXingXing/Pwndocker/blob/master/gdbinit) -- gdb configuration for docker
+[zshrc](https://github.com/TacXingXing/Pwndocker/blob/master/zshrc) -- zsh configure for the docker
+[tmux.conf](https://github.com/TacXingXing/Pwndocker/blob/master/tmux.conf) -- tmux configure for docker
 
 ### included glibc
 
@@ -60,3 +60,6 @@ or
 from pwn import *
 p = process(["/path/to/ld.so", "./test"], env={"LD_PRELOAD":"/path/to/libc.so.6"})
 ```
+
+### Others
+If you have some new tools need to add in the docker, please submit issues, thanks.
