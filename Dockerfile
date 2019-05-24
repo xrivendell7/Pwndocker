@@ -33,6 +33,7 @@ RUN dpkg --add-architecture i386 && \
     radare2 \
     gdb \
     gdb-multiarch \
+    ruby-dev \
     netcat \
     socat \
     git \
@@ -69,6 +70,7 @@ RUN pip install --upgrade setuptools && \
     pip install --upgrade pwntools
 
 RUN gem install one_gadget && rm -rf /var/lib/gems/2.3.*/cache/*
+RUN gem install seccomp-tools && rm -rf /var/lib/gems/2.3.*/cache/*
 
 # Oh-my-zsh
 RUN chsh -s /bin/zsh
@@ -96,11 +98,17 @@ COPY --from=skysider/glibc_builder32:2.19 /glibc/2.19/32 /glibc/2.19/32
 COPY --from=skysider/glibc_builder64:2.24 /glibc/2.24/64 /glibc/2.24/64
 COPY --from=skysider/glibc_builder32:2.24 /glibc/2.24/32 /glibc/2.24/32
 
+COPY --from=skysider/glibc_builder64:2.26 /glibc/2.26/64 /glibc/2.26/64
+COPY --from=skysider/glibc_builder32:2.26 /glibc/2.26/32 /glibc/2.26/32
+
 COPY --from=skysider/glibc_builder64:2.27 /glibc/2.27/64 /glibc/2.27/64
 COPY --from=skysider/glibc_builder32:2.27 /glibc/2.27/32 /glibc/2.27/32
 
 COPY --from=skysider/glibc_builder64:2.28 /glibc/2.28/64 /glibc/2.28/64
 COPY --from=skysider/glibc_builder32:2.28 /glibc/2.28/32 /glibc/2.28/32
+
+COPY --from=skysider/glibc_builder64:2.29 /glibc/2.29/64 /glibc/2.29/64
+COPY --from=skysider/glibc_builder32:2.29 /glibc/2.29/32 /glibc/2.29/32
 
 COPY linux_server linux_server64  /ctf/
 COPY zshrc /root/.zshrc

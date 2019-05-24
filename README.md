@@ -32,6 +32,7 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
 [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
 [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
+[seccomp-tools](https://github.com/david942j/seccomp-tools) -- Provide powerful tools for seccomp analysis
 
 .gdbinit
 .zshrc
