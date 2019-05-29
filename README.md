@@ -47,7 +47,6 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 - [gdbinit](https://github.com/TacXingXing/Pwndocker/blob/master/gdbinit) -- gdb configuration for docker
 - [zshrc](https://github.com/TacXingXing/Pwndocker/blob/master/zshrc) -- zsh configure for the docker
 - [tmux.conf](https://github.com/TacXingXing/Pwndocker/blob/master/tmux.conf) -- tmux configure for docker
->>>>>>> 697be292585160131bf4c921c504a1f731267372
 
 ### included glibc
 
