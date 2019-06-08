@@ -1,5 +1,5 @@
 FROM phusion/baseimage:latest
-MAINTAINER skysider <skysider@163.com>
+MAINTAINER Tac1t0rnX <Tac1t0rnX@163.com>
 
 RUN dpkg --add-architecture i386 && \
     apt-get -y update && \
@@ -41,6 +41,7 @@ RUN dpkg --add-architecture i386 && \
     gawk \
     file \
     zsh \
+    qemu \
     bison --fix-missing && \
     rm -rf /var/lib/apt/list/**
 
@@ -76,19 +77,20 @@ RUN gem install seccomp-tools && rm -rf /var/lib/gems/2.3.*/cache/*
 RUN chsh -s /bin/zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-RUN git clone https://github.com/pwndbg/pwndbg && \
-    cd pwndbg && chmod +x setup.sh && ./setup.sh
 
-RUN git clone https://github.com/scwuaptx/Pwngdb.git /root/Pwngdb && \
-    cd /root/Pwngdb && cat /root/Pwngdb/.gdbinit  >> /root/.gdbinit && \
-    sed -i "s?source ~/peda/peda.py?# source ~/peda/peda.py?g" /root/.gdbinit
+#RUN git clone https://github.com/scwuaptx/Pwngdb.git /root/Pwngdb && \
+#    cd /root/Pwngdb && cat /root/Pwngdb/.gdbinit  >> /root/.gdbinit && \
+#    sed -i "s?source ~/peda/peda.py?# source ~/peda/peda.py?g" /root/.gdbinit
 
-RUN git clone https://github.com/scwuaptx/peda.git ~/peda && \
-    cp ~/peda/.inputrc ~/ && \
-    sed -i "5245c  # self.clean_screen()" ~/peda/peda.py
+#RUN git clone https://github.com/scwuaptx/peda.git ~/peda && \
+#    cp ~/peda/.inputrc ~/ && \
+#    sed -i "5245c  # self.clean_screen()" ~/peda/peda.py
 
 RUN git clone https://github.com/niklasb/libc-database.git libc-database && \
     cd libc-database && ./get || echo "/libc-database/" > ~/.libcdb_path
+
+RUN git clone https://github.com/pwndbg/pwndbg && \
+   cd pwndbg &&  ./setup.sh
 
 WORKDIR /ctf/work/
 

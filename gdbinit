@@ -73,6 +73,7 @@ set disassembly-flavor intel
 set print asm-demangle on
 set history expansion on
 set print asm-demangle on
+set python print-stack full
 set $ASM = 0
 
 python
@@ -93,38 +94,21 @@ class IgnoreErrorsCommand (gdb.Command):
 
 IgnoreErrorsCommand ()
 end
-ignore-errors source ~/peda/peda.py
-ignore-errors source ~/Pwngdb/pwngdb.py
-ignore-errors source ~/Pwngdb/angelheap/gdbinit.py
+#ignore-errors source ~/peda/peda.py
+#ignore-errors source ~/Pwngdb/pwngdb.py
+#ignore-errors source ~/Pwngdb/angelheap/gdbinit.py
 
-define hook-run
-python
-import angelheap
-angelheap.init_angelheap()
-end
-
-# set disassembly-flavor intel
-#set output-radix 16
-
-# prevent "Type <return> to continue"
-#set height 0
-# prevent line wrap
-#set width 0
+#define hook-run
+#python
+#import angelheap
+#angelheap.init_angelheap()
+#end
 
 #handle SIGALRM nostop print nopass
 #handle SIGBUS stop print nopass
 #handle SIGPIPE nostop print nopass
 #handle SIGSEGV stop print nopass
 
-#set python print-stack full
+ignore-errors source /pwndbg/gdbinit.py
 
-# Bindings {{{1
-
-# alias var=info variables
-
-# define li
-#   x/10i $pc
-
-#end
-#alias dd=disassemble
 
