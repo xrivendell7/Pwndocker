@@ -29,33 +29,15 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 - [strace](https://linux.die.net/man/1/strace)     —— trace system call
 
 ### added softwares
-<<<<<<< HEAD
-<<<<<<< HEAD
-[zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful community-driven (with 1,300+ contributors) framework for managing your zsh configuration.
-[peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
-[socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
-[z3](https://github.com/Z3Prover/z3) --  Theorem Prover
-[seccomp-tools](https://github.com/david942j/seccomp-tools) -- Provide powerful tools for seccomp analysis
-[qemu](https://www.qemu.org) -- QEMU is a generic and open source machine emulator and virtualizer.
-=======
 - [zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful community-driven (with 1,300+ contributors) framework for managing your zsh configuration.
 - [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
 - [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
 - [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
 - [seccomp-tools](https://github.com/david942j/seccomp-tools) -- Provide powerful tools for seccomp analysis
-
->>>>>>> 601ca3fe56938416c76fb9c7c2a125e92aee0c30
+- [qemu](https://www.qemu.org) -- QEMU is a generic and open source machine emulator and virtualizer.
 .gdbinit
 .zshrc
 .tmux.conf
-=======
-- [zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful framework for managing your zsh configuration.
-- [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
-- [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
-- [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
-- [gdbinit](https://github.com/TacXingXing/Pwndocker/blob/master/gdbinit) -- gdb configuration for docker
-- [zshrc](https://github.com/TacXingXing/Pwndocker/blob/master/zshrc) -- zsh configure for the docker
-- [tmux.conf](https://github.com/TacXingXing/Pwndocker/blob/master/tmux.conf) -- tmux configure for docker
 
 ### included glibc
 
@@ -82,4 +64,4 @@ p = process(["/path/to/ld.so", "./test"], env={"LD_PRELOAD":"/path/to/libc.so.6"
 ```
 
 ### Others
-If you have some new tools need to add in the pwndocker, please submit issue, thanks.
+If you really have some new and useful tools need to add in the pwndocker, please submit issue, thanks.
