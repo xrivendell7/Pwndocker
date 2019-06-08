@@ -30,12 +30,21 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 
 ### added softwares
 <<<<<<< HEAD
+<<<<<<< HEAD
 [zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful community-driven (with 1,300+ contributors) framework for managing your zsh configuration.
 [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
 [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
 [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
 [seccomp-tools](https://github.com/david942j/seccomp-tools) -- Provide powerful tools for seccomp analysis
 [qemu](https://www.qemu.org) -- QEMU is a generic and open source machine emulator and virtualizer.
+=======
+- [zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful community-driven (with 1,300+ contributors) framework for managing your zsh configuration.
+- [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
+- [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
+- [z3](https://github.com/Z3Prover/z3) --  Theorem Prover
+- [seccomp-tools](https://github.com/david942j/seccomp-tools) -- Provide powerful tools for seccomp analysis
+
+>>>>>>> 601ca3fe56938416c76fb9c7c2a125e92aee0c30
 .gdbinit
 .zshrc
 .tmux.conf
