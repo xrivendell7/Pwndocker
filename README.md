@@ -29,6 +29,7 @@ docker run -it -v -v $(pwd)/${ctf_name}:/ctf/work -p 23946:23946 --privileged --
 - [strace](https://linux.die.net/man/1/strace)     —— trace system call
 
 ### added softwares
+
 - [zsh && oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) -- A delightful community-driven (with 1,300+ contributors) framework for managing your zsh configuration.
 - [peda](https://github.com/scwuaptx/peda) -- Python Exploit Development Assistance for GDB
 - [socat](http://www.dest-unreach.org/socat/) -- A relay for bidirectional data transfer between two independent data channels.
@@ -47,6 +48,18 @@ Default compiled glibc path is `/glibc`.
 - 2.24  —— introduce vtable check in file struct
 - 2.27  —— intruduce tcache in heap (since 2.26)
 - 2.28  —— new libc version
+
+### include multiarch libraries
+
+- arm -- gcc-5-arm-linux-gnueabi
+- aarch64 -- gcc-5-aarch64-linux-gnu
+- mips -- gcc-5-mips-linux-gnu
+- mipsel -- gcc-5-mipsel-linux-gnu 
+- mips64 -- gcc-5-mips64-linux-gnuabi64
+- mips64el -- gcc-5-mips64el-linux-gnuabi64
+- powerpc -- gcc-5-powerpc-linux-gnu
+- powerpc64 -- gcc-5-powerpc64-linux-gnu
+- powerpc64le -- gcc-5-powerpc64le-linux-gnu
 
 #### How to run in custom libc version?
 

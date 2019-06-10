@@ -42,7 +42,20 @@ RUN dpkg --add-architecture i386 && \
     file \
     zsh \
     qemu \
-    bison --fix-missing && \
+    bison --fix-missing  \
+    gcc-multilib \
+    binwalk 
+
+RUN apt-get -f install -y \
+    gcc-5-arm-linux-gnueabi \
+    gcc-5-aarch64-linux-gnu \
+    gcc-5-powerpc64le-linux-gnu \
+    gcc-5-powerpc64-linux-gnu \
+    gcc-5-powerpc-linux-gnu \
+    gcc-5-mips64el-linux-gnuabi64 \
+    gcc-5-mips64-linux-gnuabi64 \
+    gcc-5-mipsel-linux-gnu  \
+    gcc-5-mips-linux-gnu &&\
     rm -rf /var/lib/apt/list/**
 
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
@@ -78,19 +91,19 @@ RUN chsh -s /bin/zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 
-#RUN git clone https://github.com/scwuaptx/Pwngdb.git /root/Pwngdb && \
-#    cd /root/Pwngdb && cat /root/Pwngdb/.gdbinit  >> /root/.gdbinit && \
-#    sed -i "s?source ~/peda/peda.py?# source ~/peda/peda.py?g" /root/.gdbinit
+RUN git clone https://github.com/scwuaptx/Pwngdb.git /root/Pwngdb && \
+    cd /root/Pwngdb && cat /root/Pwngdb/.gdbinit  >> /root/.gdbinit && \
+    sed -i "s?source ~/peda/peda.py?# source ~/peda/peda.py?g" /root/.gdbinit
 
-#RUN git clone https://github.com/scwuaptx/peda.git ~/peda && \
-#    cp ~/peda/.inputrc ~/ && \
-#    sed -i "5245c  # self.clean_screen()" ~/peda/peda.py
+RUN git clone https://github.com/scwuaptx/peda.git ~/peda && \
+    cp ~/peda/.inputrc ~/ && \
+    sed -i "5245c  # self.clean_screen()" ~/peda/peda.py
 
 RUN git clone https://github.com/niklasb/libc-database.git libc-database && \
     cd libc-database && ./get || echo "/libc-database/" > ~/.libcdb_path
 
 RUN git clone https://github.com/pwndbg/pwndbg && \
-   cd pwndbg &&  ./setup.sh
+    cd pwndbg &&  ./setup.sh
 
 WORKDIR /ctf/work/
 
