@@ -28,8 +28,8 @@ ignore-errors source ~/peda/peda.py
 ignore-errors source ~/Pwngdb/pwngdb.py
 ignore-errors source ~/Pwngdb/angelheap/gdbinit.py
 
-# Multiarch use original pwndbg
-# ignore-errors source /pwndbg/gdbinit.py
+#Multiarch use original pwndbg
+#ignore-errors source /pwndbg/gdbinit.py
 
 define hook-run
 python

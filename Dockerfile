@@ -44,7 +44,11 @@ RUN dpkg --add-architecture i386 && \
     qemu \
     bison --fix-missing  \
     gcc-multilib \
-    binwalk 
+    binwalk \
+    libseccomp-dev \
+    libseccomp2 \
+    seccomp 
+
 
 RUN apt-get -f install -y \
     gcc-5-arm-linux-gnueabi \
@@ -83,6 +87,7 @@ RUN pip install --upgrade setuptools && \
     apscheduler && \
     pip install --upgrade pwntools
 
+RUN ulimit -c 0
 RUN gem install one_gadget && rm -rf /var/lib/gems/2.3.*/cache/*
 RUN gem install seccomp-tools && rm -rf /var/lib/gems/2.3.*/cache/*
 
@@ -95,15 +100,18 @@ RUN git clone https://github.com/scwuaptx/Pwngdb.git /root/Pwngdb && \
     cd /root/Pwngdb && cat /root/Pwngdb/.gdbinit  >> /root/.gdbinit && \
     sed -i "s?source ~/peda/peda.py?# source ~/peda/peda.py?g" /root/.gdbinit
 
-RUN git clone https://github.com/scwuaptx/peda.git ~/peda && \
-    cp ~/peda/.inputrc ~/ && \
-    sed -i "5245c  # self.clean_screen()" ~/peda/peda.py
+RUN git clone https://github.com/TacXingXing/peda.git ~/peda && \
+    cp ~/peda/.inputrc ~/
 
 RUN git clone https://github.com/niklasb/libc-database.git libc-database && \
     cd libc-database && ./get || echo "/libc-database/" > ~/.libcdb_path
 
 RUN git clone https://github.com/pwndbg/pwndbg && \
     cd pwndbg &&  ./setup.sh
+
+# Vim-config
+RUN git clone https://github.com/Tacxingxing/vimrc && \
+    cd vimrc && chmod u+x install.sh && ./install.sh && cd ..
 
 WORKDIR /ctf/work/
 
