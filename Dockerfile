@@ -20,7 +20,7 @@ RUN dpkg --add-architecture i386 && \
     libssl-dev \
     python-dev \
     build-essential \
-    ruby2.3 \
+    ruby2.6 \
     tmux \
     glibc-source \
     cmake \
