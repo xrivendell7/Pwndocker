@@ -47,7 +47,11 @@ Default compiled glibc path is `/glibc`.
 - 2.23  —— pwndocker default libc version
 - 2.24  —— introduce vtable check in file struct
 - 2.27  —— intruduce tcache in heap (since 2.26)
-- 2.28  —— new libc version
+- 2.28  —— new libc version ubuntu19.04
+- 2.29  —— new libc version ubuntu19.04
+- 2.30  —— new libc version ubuntu19.10
+- 2.31  —— new libc version ubuntu20.04
+
 
 ### include multiarch libraries
 

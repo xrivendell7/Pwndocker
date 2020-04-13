@@ -20,7 +20,6 @@ RUN dpkg --add-architecture i386 && \
     libssl-dev \
     python-dev \
     build-essential \
-    ruby2.6 \
     tmux \
     glibc-source \
     cmake \
@@ -33,7 +32,6 @@ RUN dpkg --add-architecture i386 && \
     radare2 \
     gdb \
     gdb-multiarch \
-    ruby-dev \
     netcat \
     socat \
     git \
@@ -62,6 +60,15 @@ RUN apt-get -f install -y \
     gcc-5-mips-linux-gnu &&\
     rm -rf /var/lib/apt/list/**
 
+RUN apt-add-repository ppa:brightbox/ruby-ng && \
+    apt update &&\
+    apt install -y ruby2.6 &&\
+    apt install -y ruby2.6-dev
+
+RUN ulimit -c 0
+RUN gem install one_gadget 
+RUN gem install seccomp-tools 
+
 RUN wget https://bootstrap.pypa.io/get-pip.py && \
     python3 get-pip.py && \
     python get-pip.py && \
@@ -87,14 +94,11 @@ RUN pip install --upgrade setuptools && \
     apscheduler && \
     pip install --upgrade pwntools
 
-RUN ulimit -c 0
-RUN gem install one_gadget && rm -rf /var/lib/gems/2.3.*/cache/*
-RUN gem install seccomp-tools && rm -rf /var/lib/gems/2.3.*/cache/*
+
 
 # Oh-my-zsh
 RUN chsh -s /bin/zsh
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
 
 RUN git clone https://github.com/scwuaptx/Pwngdb.git /root/Pwngdb && \
     cd /root/Pwngdb && cat /root/Pwngdb/.gdbinit  >> /root/.gdbinit && \
@@ -132,6 +136,12 @@ COPY --from=skysider/glibc_builder32:2.28 /glibc/2.28/32 /glibc/2.28/32
 
 COPY --from=skysider/glibc_builder64:2.29 /glibc/2.29/64 /glibc/2.29/64
 COPY --from=skysider/glibc_builder32:2.29 /glibc/2.29/32 /glibc/2.29/32
+
+COPY --from=skysider/glibc_builder64:2.30 /glibc/2.30/64 /glibc/2.30/64
+COPY --from=skysider/glibc_builder32:2.30 /glibc/2.30/32 /glibc/2.30/32
+
+COPY --from=skysider/glibc_builder64:2.31 /glibc/2.31/64 /glibc/2.31/64
+COPY --from=skysider/glibc_builder32:2.31 /glibc/2.31/32 /glibc/2.31/32
 
 COPY linux_server linux_server64  /ctf/
 COPY zshrc /root/.zshrc
