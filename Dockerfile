@@ -45,7 +45,10 @@ RUN dpkg --add-architecture i386 && \
     binwalk \
     libseccomp-dev \
     libseccomp2 \
-    seccomp 
+    seccomp \
+    proxychains \
+    openssh-server \
+    lrzsz \
 
 
 RUN apt-get -f install -y \
