@@ -1,11 +1,9 @@
 FROM phusion/baseimage:latest
-MAINTAINER Tac1t0rnX <Tac1t0rnX@163.com>
 
 RUN dpkg --add-architecture i386 && \
     apt-get -y update && \
+    apt-get -y upgrade
     apt install -y \
-    libc6:i386 \
-    libc6-dbg:i386 \
     build-essential \
     libc6-dbg \
     lib32stdc++6 \
@@ -146,11 +144,11 @@ COPY --from=skysider/glibc_builder32:2.30 /glibc/2.30/32 /glibc/2.30/32
 COPY --from=skysider/glibc_builder64:2.31 /glibc/2.31/64 /glibc/2.31/64
 COPY --from=skysider/glibc_builder32:2.31 /glibc/2.31/32 /glibc/2.31/32
 
-COPY linux_server linux_server64  /ctf/
+# COPY linux_server linux_server64  /ctf/
 COPY zshrc /root/.zshrc
 COPY tmux.conf /root/.tmux.conf
 COPY gdbinit /root/.gdbinit
 
-RUN chmod a+x /ctf/linux_server /ctf/linux_server64
+# RUN chmod a+x /ctf/linux_server /ctf/linux_server64
 
 ENTRYPOINT ["/bin/zsh"]
