@@ -48,19 +48,6 @@ RUN dpkg --add-architecture i386 && \
     openssh-server \
     lrzsz \
 
-
-RUN apt-get -f install -y \
-    gcc-5-arm-linux-gnueabi \
-    gcc-5-aarch64-linux-gnu \
-    gcc-5-powerpc64le-linux-gnu \
-    gcc-5-powerpc64-linux-gnu \
-    gcc-5-powerpc-linux-gnu \
-    gcc-5-mips64el-linux-gnuabi64 \
-    gcc-5-mips64-linux-gnuabi64 \
-    gcc-5-mipsel-linux-gnu  \
-    gcc-5-mips-linux-gnu &&\
-    rm -rf /var/lib/apt/list/**
-
 RUN apt-add-repository ppa:brightbox/ruby-ng && \
     apt update &&\
     apt install -y ruby2.6 &&\
@@ -118,31 +105,7 @@ RUN git clone https://github.com/pwndbg/pwndbg && \
 RUN git clone https://github.com/Tacxingxing/vimrc && \
     cd vimrc && chmod u+x install.sh && ./install.sh && cd ..
 
-WORKDIR /ctf/work/
-
-COPY --from=skysider/glibc_builder64:2.19 /glibc/2.19/64 /glibc/2.19/64
-COPY --from=skysider/glibc_builder32:2.19 /glibc/2.19/32 /glibc/2.19/32
-
-COPY --from=skysider/glibc_builder64:2.24 /glibc/2.24/64 /glibc/2.24/64
-COPY --from=skysider/glibc_builder32:2.24 /glibc/2.24/32 /glibc/2.24/32
-
-COPY --from=skysider/glibc_builder64:2.26 /glibc/2.26/64 /glibc/2.26/64
-COPY --from=skysider/glibc_builder32:2.26 /glibc/2.26/32 /glibc/2.26/32
-
-COPY --from=skysider/glibc_builder64:2.27 /glibc/2.27/64 /glibc/2.27/64
-COPY --from=skysider/glibc_builder32:2.27 /glibc/2.27/32 /glibc/2.27/32
-
-COPY --from=skysider/glibc_builder64:2.28 /glibc/2.28/64 /glibc/2.28/64
-COPY --from=skysider/glibc_builder32:2.28 /glibc/2.28/32 /glibc/2.28/32
-
-COPY --from=skysider/glibc_builder64:2.29 /glibc/2.29/64 /glibc/2.29/64
-COPY --from=skysider/glibc_builder32:2.29 /glibc/2.29/32 /glibc/2.29/32
-
-COPY --from=skysider/glibc_builder64:2.30 /glibc/2.30/64 /glibc/2.30/64
-COPY --from=skysider/glibc_builder32:2.30 /glibc/2.30/32 /glibc/2.30/32
-
-COPY --from=skysider/glibc_builder64:2.31 /glibc/2.31/64 /glibc/2.31/64
-COPY --from=skysider/glibc_builder32:2.31 /glibc/2.31/32 /glibc/2.31/32
+WORKDIR /ctf/
 
 # COPY linux_server linux_server64  /ctf/
 COPY zshrc /root/.zshrc
