@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sudo apt-get install build-essential libc6-dbg lib32stdc++6 g++-multilib cmake gcc ipython vim net-tools curl libffi-dev libssl-dev python-dev build-essential tmux glibc-source cmake strace ltrace nasm socat netcat wget radare2 gdb gdb-multiarch netcat socat git patchelf gawk file zsh qemu bison gcc-multilib binwalk libseccomp-dev libseccomp2 seccomp proxychains openssh-server lrzsz fd-find fzf silversearcher-ag --fix-missing
+sudo apt-get install build-essential libc6-dbg lib32stdc++6 g++-multilib cmake gcc vim net-tools curl libffi-dev libssl-dev build-essential tmux glibc-source cmake strace ltrace nasm socat netcat wget gdb gdb-multiarch netcat socat git patchelf gawk file zsh qemu bison gcc-multilib binwalk libseccomp-dev libseccomp2 seccomp proxychains openssh-server lrzsz fd-find fzf silversearcher-ag mosh --fix-missing
 
 # oh-my-zsh
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
